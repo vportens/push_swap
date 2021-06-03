@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:39:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 16:03:51 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/03 17:33:01 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	swap(t_lst *to_swap)
 
 	if (to_swap->actual_size < 2)
 		return ;
-	nbr_move++; //global
 	tmp = to_swap->lst[0];
 	to_swap->lst[0] = to_swap->lst[1];
 	to_swap->lst[1] = tmp;
@@ -78,7 +77,6 @@ void	push(t_lst *from, t_lst *to)
 	i = to->actual_size;
 	if (from->actual_size == 0)
 		return ;
-	nbr_move++; //att global
 	tmp = from->lst[0];
 	if (to->actual_size == 0 || tmp == from->e_min || tmp == from->e_max || tmp < to->e_min || tmp > to->e_max)
 		update_limit(from, to);
@@ -109,7 +107,6 @@ void	rotate(t_lst *to_rotate)
 	tmp = to_rotate->lst[0];
 	if (to_rotate->actual_size < 2)
 		return ;
-	nbr_move++; // att global;
 	while (i < to_rotate->actual_size - 1)
 	{
 		to_rotate->lst[i] = to_rotate->lst[i + 1];
@@ -128,7 +125,6 @@ void	revers_rotate(t_lst *to_rotate)
 	tmp = to_rotate->lst[i];
 	if (i < 1)
 		return ;
-	nbr_move++; //att global;
 	while (i > 0)
 	{
 		to_rotate->lst[i] = to_rotate->lst[i - 1];

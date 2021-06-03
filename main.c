@@ -6,13 +6,11 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:37:09 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 16:55:52 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:36:34 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-nbr_move = 0;
 
 int	error(int i)
 {
@@ -109,7 +107,6 @@ int	main(int ac, char *av[])
 {
 	t_lst 	a;
 	t_lst 	b;
-	t_move	move;
 	
 	if (ac < 2)
 		return (error(0));
@@ -121,10 +118,13 @@ int	main(int ac, char *av[])
 		return (error(0));
 	//push(&a, &b);
 	//push(&b, &a);
-	sort_em_all(&a, &b, &move);
+	sort_em_all(&a, &b);
 	int	i;
 
 	i = is_lst_sort(&a);
+	free(a.lst);
+	free(b.lst);
+
 //	if (i == 0)
 //		printf("la liste est trier\n");
 

@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 13:00:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 17:13:07 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:33:50 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	sort_tri_list(t_lst *a)
 	}
 }
 
-int	sort_em_all(t_lst *a, t_lst *b, t_move *move)
+void	sort_em_all(t_lst *a, t_lst *b)
 {
 	int i;
 
@@ -131,6 +131,6 @@ int	sort_em_all(t_lst *a, t_lst *b, t_move *move)
 			rotate(a);
 			write(1, "ra\n", 4);
 		}
-
 	}
+	return ;
 }

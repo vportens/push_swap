@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 15:24:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 14:24:54 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/03 17:34:09 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@ typedef struct s_lst
 	int			e_max;
 }				t_lst;
 
-typedef struct	s_move
-{
-	char		*move;
-	struct s_move		*next;
-}				t_move;
-
-
-int nbr_move;
 
 int				ft_atoi(char *str, t_lst *a, int index);
 
@@ -43,7 +35,7 @@ void			rotate(t_lst *to_rotate);
 void			revers_rotate(t_lst *to_rotate);
 
 int				is_lst_sort(t_lst *a);
-int				sort_em_all(t_lst *a, t_lst *b, t_move *move);
+void			sort_em_all(t_lst *a, t_lst *b);
 void			sort_tri_list(t_lst *a);
 
 #endif
