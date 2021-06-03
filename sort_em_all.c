@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_em_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 13:00:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 16:03:06 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/03 17:13:07 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ void	insert_ele_in_lst(t_lst *a, t_lst *b)
 		i++;
 	while (j < a->actual_size)
 	{
-		if (i == a->actual_size)
-			i = 0;
+
 		if (a->lst[i] < b->lst[0])
 			i++;
+
 		else
 			break;
+		if (i == a->actual_size)
+			i = 0;
 		j++;
 	}
 	if (i > a->actual_size / 2)
@@ -65,7 +67,7 @@ void	insert_ele_in_lst(t_lst *a, t_lst *b)
 		}
 	}
 	push(b, a);
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 	return ;
 
 
@@ -103,7 +105,7 @@ int	sort_em_all(t_lst *a, t_lst *b, t_move *move)
 		while (a->actual_size > 3)
 		{
 			push(a, b);
-			write(1, "pa\n", 3);
+			write(1, "pb\n", 3);
 		}
 	}
 	sort_tri_list(a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:37:09 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 15:04:39 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/03 16:55:52 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,21 +142,21 @@ int	main(int ac, char *av[])
 //	push(&a, &b);
 //	swap(&a);
 
-	i = 0;
-	printf("\n nbr move fait %d\n", nbr_move);
-	printf("list a\n");
-	while (i < a.max_lst)
-	{
-		printf("%d\n", a.lst[i]);
-		i++;
-	}
-	printf("\nlist b\n");
-	i = 0;
-	while (i < b.max_lst)
-	{
-		printf("%d\n", b.lst[i]);
-		i++;
-	}
+	// i = 0;
+	// printf("\n nbr move fait %d\n", nbr_move);
+	// printf("list a\n");
+	// while (i < a.max_lst)
+	// {
+	// 	printf("%d\n", a.lst[i]);
+	// 	i++;
+	// }
+	// printf("\nlist b\n");
+	// i = 0;
+	// while (i < b.max_lst)
+	// {
+	// 	printf("%d\n", b.lst[i]);
+	// 	i++;
+	// }
 	/*
 	printf("nbr max dans list a %d\n", a.max_lst);
 	printf("nbr in list a %d\n", a.actual_size);
