@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 13:00:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 14:39:00 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/03 16:03:06 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	insert_ele_in_lst(t_lst *a, t_lst *b)
 		i++;
 	while (j < a->actual_size)
 	{
+		if (i == a->actual_size)
+			i = 0;
 		if (a->lst[i] < b->lst[0])
 			i++;
 		else
 			break;
-		if (i == a->actual_size)
-			i = 0;
 		j++;
 	}
 	if (i > a->actual_size / 2)

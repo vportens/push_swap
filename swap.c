@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:39:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 14:06:28 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/03 16:03:51 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	push(t_lst *from, t_lst *to)
 		return ;
 	nbr_move++; //att global
 	tmp = from->lst[0];
-	if (to->actual_size == 0 || tmp == from->e_min || tmp == from->e_max)
+	if (to->actual_size == 0 || tmp == from->e_min || tmp == from->e_max || tmp < to->e_min || tmp > to->e_max)
 		update_limit(from, to);
 	while (i > 0)
 	{
