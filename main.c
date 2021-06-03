@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:37:09 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 14:29:28 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/03 14:56:38 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ int	main(int ac, char *av[])
 	int	i;
 
 	i = is_lst_sort(&a);
-	if (i == 0)
-		printf("la liste est trier\n");
+//	if (i == 0)
+//		printf("la liste est trier\n");
 
 //	swap(&a);
 //	revers_rotate(&a);
@@ -142,7 +142,7 @@ int	main(int ac, char *av[])
 //	push(&a, &b);
 //	swap(&a);
 
-	i = 0;
+/*	i = 0;
 	printf("\n nbr move fait %d\n", nbr_move);
 	printf("list a\n");
 	while (i < a.max_lst)
@@ -156,7 +156,7 @@ int	main(int ac, char *av[])
 	{
 		printf("%d\n", b.lst[i]);
 		i++;
-	}
+	}*/
 	/*
 	printf("nbr max dans list a %d\n", a.max_lst);
 	printf("nbr in list a %d\n", a.actual_size);
