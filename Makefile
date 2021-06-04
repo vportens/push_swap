@@ -5,6 +5,8 @@ CC = gcc
 OBJ = ${SRCS:.c=.o}
 OBJS = *.o
 
+.c.o:
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 all : $(NAME)
 
