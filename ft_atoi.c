@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 17:04:12 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/01 17:25:03 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/04 13:15:00 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	swap(t_lst *to_swap)
+{
+	int	tmp;
+
+	if (to_swap->actual_size < 2)
+		return ;
+	tmp = to_swap->lst[0];
+	to_swap->lst[0] = to_swap->lst[1];
+	to_swap->lst[1] = tmp;
+	return ;
+}
 
 int	ft_atoi(char *str, t_lst *a, int index)
 {

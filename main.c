@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:37:09 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 12:10:46 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/04 13:16:19 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,17 +112,7 @@ int	main(int ac, char *av[])
 		return (0);
 	if (init_lst(&a, &b, ac, av) == 1)
 		return (error(0, &a, &b));
-	sort_em_all(&a, &b);
-
-	// int i = 0;
-
-	// while (i < a.actual_size)
-	// {	
-	// 	printf("%d\n",a.lst[i]);
-	// 	i++;
-
-	// }
-
-	// free(a.lst);
-	// free(b.lst);
+	sort_em_all(&a, &b, 0);
+	free(a.lst);
+	free(b.lst);
 }

@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 13:00:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 12:24:36 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/04 13:01:14 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,32 @@ int	is_lst_sort(t_lst *a)
 	return (0);
 }
 
+int 	found_good_place(int *j, int i, t_lst *a, t_lst *b)
+{	
+	if (a->lst[i] < b->lst[0])
+		i++;
+	else
+	{
+		(*j) = a->actual_size;
+		return (i);
+	}
+	if (i == a->actual_size)
+		i = 0;
+	(*j)++;
+	return (i);
+}
+
 void	insert_ele_in_lst(t_lst *a, t_lst *b, int i, int j)
 {
 	while (a->lst[i] != a->e_min)
 		i++;
 	while (j < a->actual_size)
-	{
-		if (a->lst[i] < b->lst[0])
-			i++;
-		else
-			break ;
-		if (i == a->actual_size)
-			i = 0;
-		j++;
-	}
+		i = found_good_place(&j, i, a, b);
 	if (i > a->actual_size / 2)
 	{
 		while (i != 0)
 		{
 			revers_rotate(a);
-			write(1, "rra\n", 4);
 			i++;
 			i = i % a->actual_size;
 		}
@@ -55,7 +61,6 @@ void	insert_ele_in_lst(t_lst *a, t_lst *b, int i, int j)
 		while (i != 0)
 		{
 			rotate(a);
-			write(1, "ra\n", 3);
 			i--;
 		}
 	}
@@ -70,12 +75,10 @@ void	sort_tri_list(t_lst *a)
 		if (a->lst[1] == a->e_min && a->lst[0] == a->e_max)
 		{
 			rotate(a);
-			write(1, "ra\n", 3);
 		}
 		else if (a->lst[1] == a->e_max && a->lst[0] != a->e_min)
 		{
 			revers_rotate(a);
-			write(1, "rra\n", 4);
 		}
 		else
 		{
@@ -85,11 +88,8 @@ void	sort_tri_list(t_lst *a)
 	}
 }
 
-void	sort_em_all(t_lst *a, t_lst *b)
+void	sort_em_all(t_lst *a, t_lst *b, int i)
 {
-	int	i;
-
-	i = 0;
 	if (a->actual_size > 3)
 	{
 		while (a->actual_size > 3)
@@ -106,18 +106,11 @@ void	sort_em_all(t_lst *a, t_lst *b)
 	if (i > a->actual_size / 2)
 	{
 		while (a->lst[0] != a->e_min)
-		{
 			revers_rotate(a);
-			write(1, "rra\n", 4);
-			i--;
-		}
 	}
 	else
 	{
 		while (a->lst[0] != a->e_min)
-		{
 			rotate(a);
-			write(1, "ra\n", 4);
-		}
 	}
 }

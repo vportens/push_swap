@@ -6,29 +6,14 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:39:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 11:40:58 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/04 13:15:44 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_lst *to_swap)
+void	update_part_one(t_lst *from, t_lst *to)
 {
-	int	tmp;
-
-	if (to_swap->actual_size < 2)
-		return ;
-	tmp = to_swap->lst[0];
-	to_swap->lst[0] = to_swap->lst[1];
-	to_swap->lst[1] = tmp;
-	return ;
-}
-
-void	update_limit(t_lst *from, t_lst *to)
-{
-	int	i;
-
-	i = 1;
 	if (to->actual_size == 0)
 	{
 		to->e_max = from->lst[0];
@@ -46,6 +31,14 @@ void	update_limit(t_lst *from, t_lst *to)
 		if (to->e_max < from->lst[0])
 			to->e_max = from->lst[0];
 	}
+}
+
+void	update_limit(t_lst *from, t_lst *to)
+{
+	int	i;
+
+	i = 1;
+	update_part_one(from, to);
 	if (from->actual_size != 1 && from->lst[0] == from->e_min)
 	{
 		from->e_min = from->lst[i];
@@ -96,7 +89,6 @@ void	push(t_lst *from, t_lst *to)
 		i++;
 	}
 	from->lst[i - 1] = 0;
-	return ;
 }
 
 void	rotate(t_lst *to_rotate)
@@ -114,6 +106,7 @@ void	rotate(t_lst *to_rotate)
 		i++;
 	}
 	to_rotate->lst[i] = tmp;
+	write(1, "ra\n", 3);
 	return ;
 }
 
@@ -132,5 +125,6 @@ void	revers_rotate(t_lst *to_rotate)
 		i--;
 	}
 	to_rotate->lst[i] = tmp;
+	write(1, "rra\n", 4);
 	return ;
 }
