@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:37:09 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 17:36:34 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/04 10:45:02 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	error(int i)
 {
 	if (i == 1)
-		write(1, "bad arg\n", 8);
-	write(1, "Error\n", 6);
+		write(2, "bad arg\n", 8);
+	write(2, "Error\n", 6);
 	return (0);
 }
 
