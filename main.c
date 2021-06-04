@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:37:09 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 13:16:19 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/04 13:24:01 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	main(int ac, char *av[])
 	if (ac == 2)
 		return (0);
 	if (check_arg(ac, av) == 1)
-		return (0);
+		return (error(0, &a, &b));
 	if (init_lst(&a, &b, ac, av) == 1)
 		return (error(0, &a, &b));
 	sort_em_all(&a, &b, 0);
