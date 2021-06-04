@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 13:00:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 17:33:50 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/04 12:24:36 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,16 @@ int	is_lst_sort(t_lst *a)
 	return (0);
 }
 
-void	insert_ele_in_lst(t_lst *a, t_lst *b)
+void	insert_ele_in_lst(t_lst *a, t_lst *b, int i, int j)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
 	while (a->lst[i] != a->e_min)
 		i++;
 	while (j < a->actual_size)
 	{
-
 		if (a->lst[i] < b->lst[0])
 			i++;
-
 		else
-			break;
+			break ;
 		if (i == a->actual_size)
 			i = 0;
 		j++;
@@ -68,9 +61,6 @@ void	insert_ele_in_lst(t_lst *a, t_lst *b)
 	}
 	push(b, a);
 	write(1, "pa\n", 3);
-	return ;
-
-
 }
 
 void	sort_tri_list(t_lst *a)
@@ -87,7 +77,7 @@ void	sort_tri_list(t_lst *a)
 			revers_rotate(a);
 			write(1, "rra\n", 4);
 		}
-		else 
+		else
 		{
 			swap(a);
 			write(1, "sa\n", 3);
@@ -97,7 +87,7 @@ void	sort_tri_list(t_lst *a)
 
 void	sort_em_all(t_lst *a, t_lst *b)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (a->actual_size > 3)
@@ -110,9 +100,7 @@ void	sort_em_all(t_lst *a, t_lst *b)
 	}
 	sort_tri_list(a);
 	while (b->actual_size > 0)
-	{
-		insert_ele_in_lst(a, b);
-	}
+		insert_ele_in_lst(a, b, 0, 0);
 	while (a->lst[i] != a->e_min)
 		i++;
 	if (i > a->actual_size / 2)
@@ -132,5 +120,4 @@ void	sort_em_all(t_lst *a, t_lst *b)
 			write(1, "ra\n", 4);
 		}
 	}
-	return ;
 }

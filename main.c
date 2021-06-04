@@ -6,18 +6,21 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:37:09 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 10:45:02 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/04 12:10:46 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error(int i)
+int	error(int i, t_lst *a, t_lst *b)
 {
-	if (i == 1)
-		write(2, "bad arg\n", 8);
 	write(2, "Error\n", 6);
-	return (0);
+	if (i == 2)
+	{
+		free(a->lst);
+		free(b->lst);
+	}
+	return (1);
 }
 
 int	check_doublon(t_lst *a, t_lst *b)
@@ -38,11 +41,7 @@ int	check_doublon(t_lst *a, t_lst *b)
 			if (a->lst[j] > a->e_max)
 				a->e_max = a->lst[j];
 			if (a->lst[i] == a->lst[j])
-			{
-				free(a->lst);
-				free(b->lst);
-				return (1);
-			}
+				return (error(2, a, b));
 			j++;
 		}
 		i++;
@@ -69,11 +68,7 @@ int	init_lst(t_lst *a, t_lst *b, int ac, char **av)
 	while (i < ac - 1)
 	{
 		if (ft_atoi(av[i + 1], a, i) == 1)
-		{
-			free(a->lst);
-			free(b->lst);
-			return (1);
-		}
+			return (error(2, a, b));
 		b->lst[i] = 0;
 		i++;
 	}
@@ -84,8 +79,8 @@ int	init_lst(t_lst *a, t_lst *b, int ac, char **av)
 
 int	check_arg(int ac, char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < ac)
@@ -93,7 +88,8 @@ int	check_arg(int ac, char **av)
 		j = 0;
 		while (av[i][j] != '\0')
 		{
-			if ((av[i][j] <= '9' && av[i][j] >= '0') || (j == 0 && av[i][0] == '-'))
+			if ((av[i][j] <= '9' && av[i][j] >= '0')
+				|| (j == 0 && av[i][0] == '-'))
 				j++;
 			else
 				return (1);
@@ -105,65 +101,28 @@ int	check_arg(int ac, char **av)
 
 int	main(int ac, char *av[])
 {
-	t_lst 	a;
-	t_lst 	b;
-	
+	t_lst	a;
+	t_lst	b;
+
 	if (ac < 2)
-		return (error(0));
+		return (error(0, &a, &b));
 	if (ac == 2)
 		return (0);
 	if (check_arg(ac, av) == 1)
 		return (0);
 	if (init_lst(&a, &b, ac, av) == 1)
-		return (error(0));
-	//push(&a, &b);
-	//push(&b, &a);
+		return (error(0, &a, &b));
 	sort_em_all(&a, &b);
-	int	i;
 
-	i = is_lst_sort(&a);
-	free(a.lst);
-	free(b.lst);
+	// int i = 0;
 
-//	if (i == 0)
-//		printf("la liste est trier\n");
-
-//	swap(&a);
-//	revers_rotate(&a);
-	//rotate(&a);
-//	rotate(&a);
-//	rotate(&a);
-//	push(&a, &b);
-//	push(&b, &a);
-//	push(&a, &b);
-//	push(&a, &b);
-//	push(&a, &b);
-//	push(&a, &b);
-//	push(&a, &b);
-//	swap(&a);
-
-	// i = 0;
-	// printf("\n nbr move fait %d\n", nbr_move);
-	// printf("list a\n");
-	// while (i < a.max_lst)
-	// {
-	// 	printf("%d\n", a.lst[i]);
+	// while (i < a.actual_size)
+	// {	
+	// 	printf("%d\n",a.lst[i]);
 	// 	i++;
+
 	// }
-	// printf("\nlist b\n");
-	// i = 0;
-	// while (i < b.max_lst)
-	// {
-	// 	printf("%d\n", b.lst[i]);
-	// 	i++;
-	// }
-	/*
-	printf("nbr max dans list a %d\n", a.max_lst);
-	printf("nbr in list a %d\n", a.actual_size);
-	printf("nbr min de list a %d\n", a.e_min);
-	printf("nbr max de list a %d\n", a.e_max);
-	printf("nbr max dans list b %d\n", b.max_lst);
-	printf("nbr in list b %d\n", b.actual_size);
-	printf("nbr min de list b %d\n", b.e_min);
-	printf("nbr max de list b %d\n", b.e_max);*/
+
+	// free(a.lst);
+	// free(b.lst);
 }

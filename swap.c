@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:39:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 17:33:01 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/04 11:40:58 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,13 @@ void	push(t_lst *from, t_lst *to)
 {
 	int	tmp;
 	int	i;
-	
+
 	i = to->actual_size;
 	if (from->actual_size == 0)
 		return ;
 	tmp = from->lst[0];
-	if (to->actual_size == 0 || tmp == from->e_min || tmp == from->e_max || tmp < to->e_min || tmp > to->e_max)
+	if (to->actual_size == 0 || tmp == from->e_min || tmp == from->e_max
+		|| tmp < to->e_min || tmp > to->e_max)
 		update_limit(from, to);
 	while (i > 0)
 	{

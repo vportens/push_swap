@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 15:24:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/03 17:34:09 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/04 11:58:03 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,11 @@ typedef struct s_lst
 	int			e_max;
 }				t_lst;
 
-
 int				ft_atoi(char *str, t_lst *a, int index);
-
 void			push(t_lst *from, t_lst *to);
 void			swap(t_lst *to_swap);
 void			rotate(t_lst *to_rotate);
 void			revers_rotate(t_lst *to_rotate);
-
 int				is_lst_sort(t_lst *a);
 void			sort_em_all(t_lst *a, t_lst *b);
 void			sort_tri_list(t_lst *a);
