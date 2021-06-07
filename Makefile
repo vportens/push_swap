@@ -18,7 +18,7 @@ all : $(NAME)
 $(NAME)	: $(OBJ) 
 			$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
-$(NAME_B) : ${OBJ_B}
+$(NAME_B) : $(OBJ_B)
 			$(CC) $(FLAGS) -o $(NAME_B) $(OBJ_B)
 clean : 
 		rm -rf $(NAME) $(NAME_B)
@@ -28,4 +28,8 @@ fclean : clean
 
 re : fclean all
 
-bonus : fclean ${NAME_B}
+
+
+bonus : ${NAME_B}
+
+rebonus : flclean bonus
