@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 19:39:28 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 19:39:58 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/07 17:11:45 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,22 @@
 
 int	error(int i, t_lst *a, t_lst *b)
 {
-	write(2, "Error\n", 6);
+	if (i < 3)
+		write(2, "Error\n", 6);
 	if (i == 2)
 	{
+		free(a->lst);
+		free(b->lst);
+	}
+	if (i == 3)
+	{
+		write(1, "KO\n", 3);
+		free(a->lst);
+		free(b->lst);
+	}
+	if (i == 4)
+	{
+		write(1, "OK\n", 3);
 		free(a->lst);
 		free(b->lst);
 	}
@@ -98,4 +111,3 @@ int	check_arg(int ac, char **av)
 	}
 	return (0);
 }
-

@@ -6,11 +6,32 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 19:07:29 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 20:31:38 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/07 17:04:26 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_for_two_c(char *str)
+{
+	if (str[0] == 's' && str[1] == 'a')
+		return (1);
+	if (str[0] == 's' && str[1] == 'b')
+		return (2);
+	if (str[0] == 's' && str[1] == 's')
+		return (3);
+	if (str[0] == 'r' && str[1] == 'a')
+		return (4);
+	if (str[0] == 'r' && str[1] == 'b')
+		return (5);
+	if (str[0] == 'r' && str[1] == 'r')
+		return (6);
+	if (str[0] == 'p' && str[1] == 'a')
+		return (7);
+	if (str[0] == 'p' && str[1] == 'b')
+		return (8);
+	return (-1);
+}
 
 int	check_text(char *str, t_lst *a, t_lst *b)
 {
@@ -22,24 +43,7 @@ int	check_text(char *str, t_lst *a, t_lst *b)
 	if (i != 2 && i != 3)
 		return (-1);
 	if (i == 2)
-	{
-		if (str[0] == 's' && str[1] == 'a')
-			return (1);
-		if (str[0] == 's' && str[1] == 'b')
-			return (2);
-		if (str[0] == 's' && str[1] == 's')
-			return (3);
-		if (str[0] == 'r' && str[1] == 'a')
-			return (4);
-		if (str[0] == 'r' && str[1] == 'b')
-			return (5);
-		if (str[0] == 'r' && str[1] == 'r')
-			return (6);
-		if (str[0] == 'p' && str[1] == 'a')
-			return (7);
-		if (str[0] == 'p' && str[1] == 'b')
-			return (8);
-	}
+		return (check_for_two_c(str));
 	if (i == 3)
 	{
 		if (str[0] == 'r' && str[1] == 'r' && str[1] == 'a')
@@ -50,6 +54,28 @@ int	check_text(char *str, t_lst *a, t_lst *b)
 			return (11);
 	}
 	return (-1);
+}
+
+void	do_some_swap(t_lst *a, t_lst *b, int res)
+{
+	if (res == 6)
+	{
+		rotate(a, 0);
+		rotate(b, 0);
+	}
+	else if (res == 7)
+		push(b, a);
+	else if (res == 8)
+		push(a, b);
+	else if (res == 9)
+		revers_rotate(a, 0);
+	else if (res == 10)
+		revers_rotate(b, 0);
+	else if (res == 11)
+	{
+		revers_rotate(a, 0);
+		revers_rotate(b, 0);
+	}
 }
 
 int	do_the_move(char *str, t_lst *a, t_lst *b)
@@ -69,64 +95,38 @@ int	do_the_move(char *str, t_lst *a, t_lst *b)
 		swap(b);
 	}
 	else if (res == 4)
-		rotate(a, 0);	
+		rotate(a, 0);
 	else if (res == 5)
 		rotate(b, 0);
-	else if (res == 6)
-	{
-		rotate(a, 0);
-		rotate(b, 0);
-	}
-	else if (res == 7)
-		push(b, a);	
-	else if (res == 8)
-		push(a, b);
-	else if (res == 9)
-		revers_rotate(a, 0);	
-	else if (res == 10)
-		revers_rotate(b, 0);
-	else if (res == 11)
-	{
-		revers_rotate(a, 0);
-		revers_rotate(b, 0);
-	}
+	else if (res >= 6 && res <= 11)
+		do_some_swap(a, b, res);
 	return (0);
 }
 
-
-
-int main(int ac, char *av[0])
+int	main(int ac, char *av[0])
 {
 	t_lst	a;
 	t_lst	b;
 	char	*str;
 	int		res;
 
-
 	if (ac < 2)
 		return (error(0, &a, &b));
-	if (ac == 2)
-		return (0);
 	if (check_arg(ac, av) == 1)
 		return (error(0, &a, &b));
 	if (init_lst(&a, &b, ac, av) == 1)
 		return (error(0, &a, &b));
-	while (get_next_line(0, &str) > 0)
+	while (rec_gnl(0, &str))
 	{
 		if (do_the_move(str, &a, &b) != 0)
 		{
 			free(str);
-			free(a.lst);
-			free(b.lst);
-			break ;
+			return (error(3, &a, &b));
 		}
 		free(str);
 	}
-	if (is_lst_sort(&a) && b.actual_size == 0)
-		write(1, "OK\n", 3);
+	if (is_lst_sort(&a) == 0 && b.actual_size == 0)
+		return (error(4, &a, &b));
 	else
-		write(1, "KO\n", 3);
-	//sort_em_all(&a, &b, 0);
-	free(a.lst);
-	free(b.lst);
+		return (error(3, &a, &b));
 }

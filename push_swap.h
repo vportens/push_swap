@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 15:24:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 20:32:23 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/07 16:59:00 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <limits.h>
 # define BUFFER_SIZE 100
-
 
 typedef struct s_lst
 {
@@ -42,10 +41,6 @@ int				check_arg(int ac, char **av);
 int				init_lst(t_lst *a, t_lst *b, int ac, char **av);
 int				check_doublon(t_lst *a, t_lst *b);
 int				error(int i, t_lst *a, t_lst *b);
-char	*ft_calloc_gnl(void);
-char	*ft_substr_gnl(char *str, int start);
-char	*ft_strdup_gnl(char *str, int len);
-char	*ft_strjoin_gnl(char **s1, char *s2);
-int		ft_strchr_gnl(char *str, int found);
+int				rec_gnl(int fd, char **line);
 
 #endif
