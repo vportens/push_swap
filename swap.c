@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:39:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 13:15:44 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/04 20:29:16 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	push(t_lst *from, t_lst *to)
 	from->lst[i - 1] = 0;
 }
 
-void	rotate(t_lst *to_rotate)
+void	rotate(t_lst *to_rotate, int show)
 {
 	int	tmp;
 	int	i;
@@ -106,11 +106,12 @@ void	rotate(t_lst *to_rotate)
 		i++;
 	}
 	to_rotate->lst[i] = tmp;
-	write(1, "ra\n", 3);
+	if (show == 1)
+		write(1, "ra\n", 3);
 	return ;
 }
 
-void	revers_rotate(t_lst *to_rotate)
+void	revers_rotate(t_lst *to_rotate, int show)
 {
 	int	tmp;
 	int	i;
@@ -125,6 +126,7 @@ void	revers_rotate(t_lst *to_rotate)
 		i--;
 	}
 	to_rotate->lst[i] = tmp;
-	write(1, "rra\n", 4);
+	if (show == 1)
+		write(1, "rra\n", 4);
 	return ;
 }

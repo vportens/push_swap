@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 14:37:09 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 13:24:01 by edal--ce         ###   ########.fr       */
+/*   Created: 2021/06/04 19:39:28 by laclide           #+#    #+#             */
+/*   Updated: 2021/06/04 19:39:58 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,20 +99,3 @@ int	check_arg(int ac, char **av)
 	return (0);
 }
 
-int	main(int ac, char *av[])
-{
-	t_lst	a;
-	t_lst	b;
-
-	if (ac < 2)
-		return (error(0, &a, &b));
-	if (ac == 2)
-		return (0);
-	if (check_arg(ac, av) == 1)
-		return (error(0, &a, &b));
-	if (init_lst(&a, &b, ac, av) == 1)
-		return (error(0, &a, &b));
-	sort_em_all(&a, &b, 0);
-	free(a.lst);
-	free(b.lst);
-}

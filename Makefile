@@ -1,6 +1,6 @@
 NAME = push_swap
 FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
-SRCS = ft_atoi.c main.c sort_em_all.c swap.c
+SRCS = ft_atoi.c main_push_swap.c sort_em_all.c swap.c swap_utils.c
 CC = gcc
 OBJ = ${SRCS:.c=.o}
 OBJS = *.o

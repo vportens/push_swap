@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 15:24:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 12:44:51 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/04 20:32:23 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# define BUFFER_SIZE 100
+
 
 typedef struct s_lst
 {
@@ -29,10 +32,20 @@ typedef struct s_lst
 int				ft_atoi(char *str, t_lst *a, int index);
 void			push(t_lst *from, t_lst *to);
 void			swap(t_lst *to_swap);
-void			rotate(t_lst *to_rotate);
-void			revers_rotate(t_lst *to_rotate);
+void			rotate(t_lst *to_rotate, int show);
+void			revers_rotate(t_lst *to_rotate, int show);
 int				is_lst_sort(t_lst *a);
 void			sort_em_all(t_lst *a, t_lst *b, int i);
 void			sort_tri_list(t_lst *a);
+int				get_next_line(int fd, char **line);
+int				check_arg(int ac, char **av);
+int				init_lst(t_lst *a, t_lst *b, int ac, char **av);
+int				check_doublon(t_lst *a, t_lst *b);
+int				error(int i, t_lst *a, t_lst *b);
+char	*ft_calloc_gnl(void);
+char	*ft_substr_gnl(char *str, int start);
+char	*ft_strdup_gnl(char *str, int len);
+char	*ft_strjoin_gnl(char **s1, char *s2);
+int		ft_strchr_gnl(char *str, int found);
 
 #endif

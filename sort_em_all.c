@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 13:00:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 13:01:14 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/06/04 20:30:00 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	insert_ele_in_lst(t_lst *a, t_lst *b, int i, int j)
 	{
 		while (i != 0)
 		{
-			revers_rotate(a);
+			revers_rotate(a, 1);
 			i++;
 			i = i % a->actual_size;
 		}
@@ -60,7 +60,7 @@ void	insert_ele_in_lst(t_lst *a, t_lst *b, int i, int j)
 	{
 		while (i != 0)
 		{
-			rotate(a);
+			rotate(a, 1);
 			i--;
 		}
 	}
@@ -74,11 +74,11 @@ void	sort_tri_list(t_lst *a)
 	{
 		if (a->lst[1] == a->e_min && a->lst[0] == a->e_max)
 		{
-			rotate(a);
+			rotate(a, 1);
 		}
 		else if (a->lst[1] == a->e_max && a->lst[0] != a->e_min)
 		{
-			revers_rotate(a);
+			revers_rotate(a, 1);
 		}
 		else
 		{
@@ -106,11 +106,11 @@ void	sort_em_all(t_lst *a, t_lst *b, int i)
 	if (i > a->actual_size / 2)
 	{
 		while (a->lst[0] != a->e_min)
-			revers_rotate(a);
+			revers_rotate(a, 1);
 	}
 	else
 	{
 		while (a->lst[0] != a->e_min)
-			rotate(a);
+			rotate(a, 1);
 	}
 }
