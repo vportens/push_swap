@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 14:39:17 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/04 20:29:16 by laclide          ###   ########.fr       */
+/*   Updated: 2021/06/07 17:55:41 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,9 @@ void	revers_rotate(t_lst *to_rotate, int show)
 	int	i;
 
 	i = to_rotate->actual_size - 1;
-	tmp = to_rotate->lst[i];
 	if (i < 1)
 		return ;
+	tmp = to_rotate->lst[i];
 	while (i > 0)
 	{
 		to_rotate->lst[i] = to_rotate->lst[i - 1];

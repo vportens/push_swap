@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 19:07:29 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/07 17:04:26 by viporten         ###   ########.fr       */
+/*   Updated: 2021/06/07 17:52:53 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_for_two_c(char *str)
 	return (-1);
 }
 
-int	check_text(char *str, t_lst *a, t_lst *b)
+int	check_text(char *str)
 {
 	int	i;
 
@@ -46,11 +46,11 @@ int	check_text(char *str, t_lst *a, t_lst *b)
 		return (check_for_two_c(str));
 	if (i == 3)
 	{
-		if (str[0] == 'r' && str[1] == 'r' && str[1] == 'a')
+		if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a')
 			return (9);
-		if (str[0] == 'r' && str[1] == 'r' && str[1] == 'b')
+		if (str[0] == 'r' && str[1] == 'r' && str[2] == 'b')
 			return (10);
-		if (str[0] == 'r' && str[1] == 'r' && str[1] == 'r')
+		if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r')
 			return (11);
 	}
 	return (-1);
@@ -82,7 +82,7 @@ int	do_the_move(char *str, t_lst *a, t_lst *b)
 {
 	int	res;
 
-	res = check_text(str, a, b);
+	res = check_text(str);
 	if (res < 0)
 		return (1);
 	if (res == 1)
@@ -108,7 +108,6 @@ int	main(int ac, char *av[0])
 	t_lst	a;
 	t_lst	b;
 	char	*str;
-	int		res;
 
 	if (ac < 2)
 		return (error(0, &a, &b));
