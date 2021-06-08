@@ -124,6 +124,8 @@ int	main(int ac, char *av[0])
 		}
 		free(str);
 	}
+	if (str)
+		free(str);
 	if (is_lst_sort(&a) == 0 && b.actual_size == 0)
 		return (error(4, &a, &b));
 	else
