@@ -1,7 +1,7 @@
 NAME = push_swap
 NAME_B = checker
-FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
-SRCS = ft_atoi.c main_push_swap.c sort_em_all.c swap.c swap_utils.c
+FLAGS = -Wall -g -fsanitize=address
+SRCS = ft_atoi.c main_push_swap.c sort_em_all.c swap.c swap_utils.c sort_em_by_part.c
 SRCS_BONUS = gnl_recusif.c main_checker.c ft_atoi.c sort_em_all.c swap.c swap_utils.c
 
 CC = gcc

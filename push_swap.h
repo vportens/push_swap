@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 15:24:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/09 17:25:33 by viporten         ###   ########.fr       */
+/*   Updated: 2021/06/09 18:43:53 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int				init_lst(t_lst *a, t_lst *b, int ac, char **av);
 int				check_doublon(t_lst *a);
 int				error(int i, t_lst *a, t_lst *b);
 int				rec_gnl(int fd, char **line);
+void	sort_em_by_part(t_lst *a, t_lst *b, int ac);
 
 #endif
