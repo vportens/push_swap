@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 19:39:28 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/07 17:11:45 by viporten         ###   ########.fr       */
+/*   Updated: 2021/06/09 17:27:10 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	error(int i, t_lst *a, t_lst *b)
 	return (1);
 }
 
-int	check_doublon(t_lst *a, t_lst *b)
+int	check_doublon(t_lst *a)
 {
 	int	i;
 	int	j;
@@ -54,7 +54,7 @@ int	check_doublon(t_lst *a, t_lst *b)
 			if (a->lst[j] > a->e_max)
 				a->e_max = a->lst[j];
 			if (a->lst[i] == a->lst[j])
-				return (error(2, a, b));
+				return (1);
 			j++;
 		}
 		i++;
@@ -87,7 +87,7 @@ int	init_lst(t_lst *a, t_lst *b, int ac, char **av)
 	}
 	a->actual_size = ac - 1;
 	b->actual_size = 0;
-	return (check_doublon(a, b));
+	return (check_doublon(a));
 }
 
 int	check_arg(int ac, char **av)

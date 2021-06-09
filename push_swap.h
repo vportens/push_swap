@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 15:24:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/07 16:59:00 by viporten         ###   ########.fr       */
+/*   Updated: 2021/06/09 17:25:33 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void			sort_tri_list(t_lst *a);
 int				get_next_line(int fd, char **line);
 int				check_arg(int ac, char **av);
 int				init_lst(t_lst *a, t_lst *b, int ac, char **av);
-int				check_doublon(t_lst *a, t_lst *b);
+int				check_doublon(t_lst *a);
 int				error(int i, t_lst *a, t_lst *b);
 int				rec_gnl(int fd, char **line);
 
