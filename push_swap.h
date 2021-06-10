@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 15:24:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/09 18:43:53 by viporten         ###   ########.fr       */
+/*   Updated: 2021/06/10 15:00:02 by viporten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <limits.h>
 # define BUFFER_SIZE 100
 
+typedef struct	s_sort;
+
 typedef struct s_lst
 {
 	int			max_lst;
@@ -27,6 +29,13 @@ typedef struct s_lst
 	int			e_min;
 	int			e_max;
 }				t_lst;
+
+typedef struct	s_sort
+{
+	int		pool;
+	int		pos;
+	struct s_sort	*next;
+}				t_sort;
 
 int				ft_atoi(char *str, t_lst *a, int index);
 void			push(t_lst *from, t_lst *to);
