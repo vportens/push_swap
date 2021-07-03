@@ -1,9 +1,9 @@
 NAME = push_swap
 NAME_B = checker
 FLAGS = -Wall -g -fsanitize=address
-SRCS = ft_atoi.c main_push_swap.c sort_em_all.c swap.c swap_utils.c sort_em_by_part.c
-SRCS_BONUS = gnl_recusif.c main_checker.c ft_atoi.c sort_em_all.c swap.c swap_utils.c
-
+SRCS = main_push_swap.c utils.c init.c ft_lst.c sort.c fonction.c list_sort.c solver.c max_min_lst.c pusher.c end_solver.c
+ 
+SRCS_BONUS = gnl_recusif.c main_checker.c ft_atoi.c sort_em_all.c swap.c swap_utils.c 
 CC = gcc
 OBJ = ${SRCS:.c=.o}
 OBJS = *.o

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 15:24:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/10 15:00:02 by viporten         ###   ########.fr       */
+/*   Created: 2021/06/12 11:10:14 by laclide           #+#    #+#             */
+/*   Updated: 2021/07/03 17:22:29 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,78 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
-# define BUFFER_SIZE 100
 
 typedef struct	s_sort;
 
-typedef struct s_lst
+typedef struct s_push
 {
+	int			*tab_a;
 	int			max_lst;
-	int			*lst;
-	int			actual_size;
-	int			e_min;
-	int			e_max;
-}				t_lst;
+	int			actual_size_a;
+	int			actual_size_b;
+	int			e_min_a;
+	int			e_max_a;
+	int			e_min_b;
+	int			e_max_b;
+	int			nbr_per_part;
+//	int			min_move;
+//	int			nbr_to_move;
+	struct s_sort		*first_a;
+	struct s_sort		*first_b;
+
+}				t_push;
 
 typedef struct	s_sort
 {
-	int		pool;
-	int		pos;
+	int		nbr;
+	int		pos_sort;
+	int		ra;
+	int		rra;
+	int		rb;
+	int		rrb;
+	int		nbr_move;
+	int		r;
 	struct s_sort	*next;
 }				t_sort;
 
-int				ft_atoi(char *str, t_lst *a, int index);
-void			push(t_lst *from, t_lst *to);
-void			swap(t_lst *to_swap);
-void			rotate(t_lst *to_rotate, int show);
-void			revers_rotate(t_lst *to_rotate, int show);
-int				is_lst_sort(t_lst *a);
-void			sort_em_all(t_lst *a, t_lst *b, int i);
-void			sort_tri_list(t_lst *a);
-int				get_next_line(int fd, char **line);
-int				check_arg(int ac, char **av);
-int				init_lst(t_lst *a, t_lst *b, int ac, char **av);
-int				check_doublon(t_lst *a);
-int				error(int i, t_lst *a, t_lst *b);
-int				rec_gnl(int fd, char **line);
-void	sort_em_by_part(t_lst *a, t_lst *b, int ac);
+int	check_arg(int ac, char **av);
+int	error(int i, t_push *lst);
+int	clean(t_push *lst, int i);
+int	init_stc(t_push *lst, int ac, char **av);
+int	check_doublon(t_push *lst);
 
+int	is_lst_sort(int *tab, int max_lst);
+int	ft_atoi(char *str, int *a, int index);
+int	init_lst_b_chaine(t_push *lst);
+int	*ft_cp_tab(int	*tab, int max_lst);
+
+int	ft_lst_add_back(int	nbr, t_push *stc);
+int	ft_lst_first(int nbr, t_push *stc);
+t_sort	*ft_lst_last(t_push *stc);
+
+
+void	sort_tab(t_push *stc);
+void	swap(t_push	*stc, int list);
+void	push(t_push *stc, t_sort *target);
+t_sort	*rotate(t_push *stc, t_sort *target);
+
+t_sort	*revers_rotate(t_push *stc, t_sort *target);
+int	list_sort(t_push *stc);
+
+void	solver_push_swap(t_push *stc);
+
+int	check_max_min(t_push *stc, t_sort *target);
+void	update_max_min_lst_b(t_push *stc, t_sort *target);
+void	update_max_min_lst(t_push *stc, t_sort *target);
+int	check_max_min_b(t_push *stc, t_sort *target);
+	
+void	push_rr(t_push *stc, t_sort *start, int a, int b);
+void	push_r(t_push *stc, t_sort *start, int a, int b);
+void	push_both(t_push *stc, int sorter, t_sort *start);
+void	push_both_second_path(t_push *stc, int sorter, t_sort *start);
+void	push_the_nbr(int nbr_to_move, t_push *stc);
+void	put_big_one_to_the_top(t_push *stc);
+void	put_second_part(t_push *stc);
+void	send_lst(t_push *stc);
+int		fucking_norme(int which_one, int a, int b, int c);
 #endif
