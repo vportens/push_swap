@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:18:43 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/03 17:22:31 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/04 18:04:37 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int		fucking_norme(int which_one, int a, int b, int c)
 		return (b);
 	if (which_one == -1)
 		return (c);
+	return (0);
 }
 

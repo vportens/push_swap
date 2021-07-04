@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:17:30 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/30 16:03:02 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/04 21:59:34 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,5 @@ int	list_sort(t_push *stc)
 		stc->first_a = stc->first_a->next;
 	}
 	stc->first_a = first;
-	if (stc->actual_size_a == stc->max_lst)
-		return (1);
-	return (0);
+	return (1);
 }

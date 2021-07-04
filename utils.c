@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 11:08:13 by laclide           #+#    #+#             */
-/*   Updated: 2021/06/25 17:26:54 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/04 18:11:07 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int clean(t_push *lst, int i)
 {
 	t_sort	*tmp;
 
+	if (i >= 1)
+		free(lst->tab_a);
 	if (i >= 2)
 	{
 		while (lst->first_a != NULL)
@@ -31,22 +33,12 @@ int clean(t_push *lst, int i)
 int	error(int i, t_push *lst)
 {
 	int	j;
-	t_sort	*tmp;
 
 	j = 0;
 	if (i >= 0)
 		write(1, "Error\n", 6);
 	if (i > 0)
-		free(lst->tab_a);
-	if (i > 1)
-	{
-		while (lst->first_a != NULL)
-		{
-			tmp = lst->first_a;
-			lst->first_a = lst->first_a->next;
-			free(tmp);
-		}
-	}
+		clean(lst, i);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 11:10:14 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/03 17:22:29 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/04 20:57:17 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_sort;
+struct	s_sort;
 
 typedef struct s_push
 {
@@ -83,8 +83,8 @@ int	check_max_min_b(t_push *stc, t_sort *target);
 	
 void	push_rr(t_push *stc, t_sort *start, int a, int b);
 void	push_r(t_push *stc, t_sort *start, int a, int b);
-void	push_both(t_push *stc, int sorter, t_sort *start);
-void	push_both_second_path(t_push *stc, int sorter, t_sort *start);
+void	push_both(t_push *stc, t_sort *start);
+void	push_both_second_path(t_push *stc, t_sort *start);
 void	push_the_nbr(int nbr_to_move, t_push *stc);
 void	put_big_one_to_the_top(t_push *stc);
 void	put_second_part(t_push *stc);

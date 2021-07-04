@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:56:55 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/03 15:33:05 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/04 18:14:49 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	init_lst(t_push *stc, int nbr_element)
 		if (stc->first_a == NULL)
 		{
 			if (ft_lst_first(stc->tab_a[i], stc) == 1)
-				return (error(2, stc));
+				return (error(1, stc));
 			first = stc->first_a;
 		}
 		else if (ft_lst_add_back(stc->tab_a[i], stc) == 1)
@@ -36,11 +36,6 @@ int	init_lst(t_push *stc, int nbr_element)
 		i++;
 	}
 	stc->first_a = first;
-/*	while (stc->first_a != NULL)
-	{
-		printf("init.c	in the list %d\n", stc->first_a->nbr);
-		stc->first_a = stc->first_a->next;
-	}*/
 	return (0);
 }
 

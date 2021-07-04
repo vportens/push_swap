@@ -6,13 +6,13 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:14:30 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/03 17:17:01 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/04 18:03:50 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_both_second_path(t_push *stc, int sorter, t_sort *start)
+void	push_both_second_path(t_push *stc, t_sort *start)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ void	push_both_second_path(t_push *stc, int sorter, t_sort *start)
 	write(1, "pa\n", 3);
 }
 
-void	push_both(t_push *stc, int sorter, t_sort *start)
+void	push_both(t_push *stc, t_sort *start)
 {
 	int	i;
 	int	j;
@@ -132,9 +132,9 @@ void	push_the_nbr(int nbr_to_move, t_push *stc)
 	if (stc->first_a->r == -1)
 	{
 		if (stc->first_a->ra + stc->first_a->rrb > stc->first_a->rb + stc->first_a->rra)
-			push_both(stc, 1, start);
+			push_both(stc, start);
 		else
-			push_both_second_path(stc, 2, start);
+			push_both_second_path(stc, start);
 	}
 	else if (stc->first_a->r == 0)
 		push_rr(stc, start, stc->first_a->rra, stc->first_a->rrb);
