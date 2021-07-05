@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:18:43 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/04 18:04:37 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:50:55 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	send_lst(t_push *stc)
 	while (stc->first_b)
 	{
 		push(stc, stc->first_b);
-		write(1, "pb\n", 3);
+		write(1, "pa\n", 3);
 	}
 }
 

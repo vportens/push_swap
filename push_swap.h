@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 11:10:14 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/04 20:57:17 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:47:50 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,11 @@ void	put_big_one_to_the_top(t_push *stc);
 void	put_second_part(t_push *stc);
 void	send_lst(t_push *stc);
 int		fucking_norme(int which_one, int a, int b, int c);
+
+void	sort_em_all(t_push *lst);
+void	sort_tri_list(t_push *lst);
+int	found_good_place(t_push *lst);
+void	witch_side_rotate(t_push *lst, int i);
+void	insert_ele_in_lst(t_push *lst);
+int		found_e_min(t_push *lst);
 #endif

@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:14:30 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/04 18:03:50 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:50:45 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push_both_second_path(t_push *stc, t_sort *start)
 		j--;
 	}
 	push(stc, stc->first_a);
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }
 
 void	push_both(t_push *stc, t_sort *start)
@@ -65,7 +65,7 @@ void	push_both(t_push *stc, t_sort *start)
 			j--;
 	}
 	push(stc, stc->first_a);
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }
 
 void	push_r(t_push *stc, t_sort *start, int a, int b)
@@ -92,7 +92,7 @@ void	push_r(t_push *stc, t_sort *start, int a, int b)
 		b--;
 	}
 	push(stc, stc->first_a);
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }
 
 void	push_rr(t_push *stc, t_sort *start, int a, int b)
@@ -119,7 +119,7 @@ void	push_rr(t_push *stc, t_sort *start, int a, int b)
 		b--;
 	}
 	push(stc, stc->first_a);
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }
 
 void	push_the_nbr(int nbr_to_move, t_push *stc)
