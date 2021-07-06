@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 14:43:06 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/05 14:49:34 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:55:46 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,5 @@ void	sort_em_all(t_push *lst)
 		insert_ele_in_lst(lst);
 	i = found_e_min(lst);
 	witch_side_rotate(lst, i);
-	printf("list a |");
-	while (lst->first_a)
-	{
-		printf("%d |", lst->first_a->nbr);
-		lst->first_a = lst->first_a->next;
-	}
 }
 

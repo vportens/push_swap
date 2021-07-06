@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 11:04:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/05 14:49:49 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/05 14:56:56 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		found_e_min(t_push *lst)
 int	main(int ac, char *av[])
 {
 	t_push new;
+	int	i;
 
 	if (ac < 2)
 		return (0);
@@ -81,15 +82,8 @@ int	main(int ac, char *av[])
 	if (ac < 20)
 	{
 		sort_em_all(&new);
-		return (1);
+		return (clean(&new, 2));
 	}
 	solver_push_swap(&new);
 	clean(&new, 2);
-	printf("main	list a |");
-	while (new.first_a)
-	{
-		printf("%d |", new.first_a->nbr);
-		new.first_a = new.first_a->next;
-	}
-	printf("\n");
 }
