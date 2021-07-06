@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 14:43:06 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/05 14:55:46 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/06 12:15:36 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	sort_tri_list(t_push *lst)
 			revers_rotate(lst, lst->first_a);
 			write(1, "rra\n", 4);
 		}
-		else 
+		else
 		{
 			swap(lst, 1);
 			write(1, "sa\n", 3);

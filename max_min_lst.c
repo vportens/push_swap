@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 14:15:59 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/03 14:16:33 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/06 12:14:19 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void	update_max_min_lst_b(t_push *stc, t_sort *target)
 	t_sort	*start;
 
 	start = target;
+	if (target->next)
+	{
+		target = target->next;
+		stc->e_min_b = target->nbr;
+		stc->e_max_b = target->nbr;
+	}
 	while (target)
 	{
 		if (target->nbr < stc->e_min_b)
@@ -35,6 +41,12 @@ void	update_max_min_lst(t_push *stc, t_sort *target)
 	if (target == stc->first_a)
 	{
 	start = target;
+	target = target->next;
+	if (target)
+	{
+	stc->e_min_a = target->nbr;
+	stc->e_max_a = target->nbr;
+	}
 	while (target)
 	{
 			if (target->nbr < stc->e_min_a)
@@ -49,7 +61,7 @@ void	update_max_min_lst(t_push *stc, t_sort *target)
 		update_max_min_lst_b(stc, target);
 }
 
-int	check_max_min_b(t_push *stc, t_sort *target)
+void	check_max_min_b(t_push *stc, t_sort *target)
 {
 		if (stc->first_a == NULL)
 		{
@@ -61,11 +73,11 @@ int	check_max_min_b(t_push *stc, t_sort *target)
 		if (target->nbr > stc->e_max_a)
 			stc->e_max_a = target->nbr;
 		if (target->nbr == stc->e_min_b || target->nbr == stc->e_min_b)
-			return (1);
-		return (0);
+			return (update_max_min_lst_b(stc, target));
+		return ;
 }
 
-int	check_max_min(t_push *stc, t_sort *target)
+void	check_max_min(t_push *stc, t_sort *target)
 {
 	if (target == stc->first_a)
 	{
@@ -79,14 +91,15 @@ int	check_max_min(t_push *stc, t_sort *target)
 		if (target->nbr > stc->e_max_b)
 			stc->e_max_b = target->nbr;
 		if (target->nbr == stc->e_min_a || target->nbr == stc->e_max_a)
-			return (1);
+		{
+			return (update_max_min_lst(stc, target));
+		}
 
-		return (0);
+		return ;
 	}
 	if (target == stc->first_b)
 	{
 		return (check_max_min_b(stc, target));
 	}
-	return (0);
+	return ;
 }
-

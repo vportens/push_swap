@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 11:04:21 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/05 14:56:56 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/06 12:42:48 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,27 @@ int	main(int ac, char *av[])
 	if (list_sort(&new) == 1)
 		return (clean(&new, 2));
 	new.nbr_per_part = ac;
+	if (ac < 3)
+	{
+		write(1, "ra\n", 3);
+	}
 	if (ac < 20)
 	{
 		sort_em_all(&new);
+		if (list_sort(&new) != 1)
+			write(1,"ERROR\n", 6);
 		return (clean(&new, 2));
 	}
 	solver_push_swap(&new);
+	if (list_sort(&new) != 1)
+		write(1,"ERROR\n", 6);
+	t_sort *start;
+
+	start = new.first_a;
+	while (new.first_a)
+	{
+		printf("%d |",new.first_a->nbr);
+new.first_a = new.first_a->next;
+	}
 	clean(&new, 2);
 }

@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 00:37:02 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/03 14:16:49 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/06 12:25:51 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	push(t_push *stc, t_sort *target)
 	i = 0;
 	if (target == NULL)
 		return ;
-	i = check_max_min(stc, target);
+	 check_max_min(stc, target);
 	if (target == stc->first_a)
 	{
 		stc->first_a = stc->first_a->next;
@@ -59,8 +59,8 @@ void	push(t_push *stc, t_sort *target)
 		stc->actual_size_b--;
 		stc->actual_size_a++;
 	}
-	if (i == 1)
-		update_max_min_lst(stc, target);
+//	if (i == 1)
+//		update_max_min_lst(stc, target);
 }
 
 t_sort	*rotate(t_push *stc, t_sort *target)

@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 11:10:14 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/05 14:47:50 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/06 12:25:18 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_push
 	int			e_min_b;
 	int			e_max_b;
 	int			nbr_per_part;
-//	int			min_move;
-//	int			nbr_to_move;
+	int			min_move;
+	int			nbr_to_move;
 	struct s_sort		*first_a;
 	struct s_sort		*first_b;
 
@@ -76,10 +76,10 @@ int	list_sort(t_push *stc);
 
 void	solver_push_swap(t_push *stc);
 
-int	check_max_min(t_push *stc, t_sort *target);
+void	check_max_min(t_push *stc, t_sort *target);
 void	update_max_min_lst_b(t_push *stc, t_sort *target);
 void	update_max_min_lst(t_push *stc, t_sort *target);
-int	check_max_min_b(t_push *stc, t_sort *target);
+void	check_max_min_b(t_push *stc, t_sort *target);
 	
 void	push_rr(t_push *stc, t_sort *start, int a, int b);
 void	push_r(t_push *stc, t_sort *start, int a, int b);
