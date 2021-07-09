@@ -80,12 +80,26 @@ void	fill_inf_move(t_push *stc, int index)
 		prec = ft_lst_last(stc);
 	while (stc->first_b)
 	{
-		if ((prec->pos_sort > stc->first_a->pos_sort || prec->nbr == stc->e_min_b) && (stc->first_b->pos_sort < stc->first_a->pos_sort))
+		if ((prec->pos_sort > stc->first_a->pos_sort) && (stc->first_b->pos_sort < stc->first_a->pos_sort))
+		{
 			break;
+			}
+		if ((stc->first_a->nbr > stc->e_max_b && prec->nbr == stc->e_min_b))
+			break ;
+		if (stc->first_a->nbr < stc->e_min_b && prec->nbr == stc->e_min_b)
+			break ;
+		if (stc->first_a->nbr > stc->e_max_b && stc->first_b->nbr == stc->e_max_b)
+		{
+			break ;
+			}
+
 		prec = stc->first_b;
 		stc->first_b = stc->first_b->next;
 		j++;
 	}
+
+
+//	printf("%d\n", j);
 	stc->first_a->rb = j;
 	stc->first_a->rrb = stc->actual_size_b - j;
 	stc->first_a->nbr_move = best_nbr_move(stc);
@@ -97,10 +111,18 @@ void	sort_part(t_push *stc, int part)
 	int i;
 	int	j;
 	t_sort	*first_a;
+	int	nbr;
 
 	i = 0;
 	j = 0;
 	first_a = stc->first_a;
+/*	printf("actual size a %d\n",stc->actual_size_a);
+	printf("actual size b %d\n",stc->actual_size_b);
+	printf("element max a %d\n",stc->e_max_a);
+	 printf("element min a %d\n",stc->e_min_a);
+	 printf("element max b %d\n",stc->e_max_b);
+	 printf("element min b %d\n",stc->e_min_b);
+*/
 	while (stc->first_a)
 	{
 		if (stc->first_a->pos_sort < stc->nbr_per_part * (part + 1))
@@ -110,7 +132,15 @@ void	sort_part(t_push *stc, int part)
 		j++;
 	}
 	stc->first_a = first_a;
-	push_the_nbr(found_the_best_move(stc, part), stc);
+	if (stc->first_b == NULL)
+	{
+		push(stc, stc->first_a);
+		write(1, "pb\n", 3);
+		return ;
+	}
+	nbr = found_the_best_move(stc, part);
+	//printf("%d nbr to push\n",nbr);
+	push_the_nbr(nbr, stc);
 }
 
 void	solver_push_swap(t_push *stc)

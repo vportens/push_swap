@@ -96,10 +96,10 @@ int	main(int ac, char *av[])
 	t_sort *start;
 
 	start = new.first_a;
-	while (new.first_a)
+/*	while (new.first_a)
 	{
 		printf("%d |",new.first_a->nbr);
 new.first_a = new.first_a->next;
-	}
+	}*/
 	clean(&new, 2);
 }

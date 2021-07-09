@@ -50,6 +50,8 @@ typedef struct	s_sort
 	struct s_sort	*next;
 }				t_sort;
 
+int	ft_str_len(char *str);
+char	*ft_itoa(int nbr);
 int	check_arg(int ac, char **av);
 int	error(int i, t_push *lst);
 int	clean(t_push *lst, int i);

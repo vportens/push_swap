@@ -127,8 +127,11 @@ void	push_the_nbr(int nbr_to_move, t_push *stc)
 	t_sort *start;
 
 	start = stc->first_a;
+
+//	printf("pos sort a %d | nbr to move %d \n",nbr_to_move, stc->first_a->nbr );
 	while (stc->first_a->pos_sort != nbr_to_move)
 		stc->first_a = stc->first_a->next;
+	
 	if (stc->first_a->r == -1)
 	{
 		if (stc->first_a->ra + stc->first_a->rrb > stc->first_a->rb + stc->first_a->rra)
