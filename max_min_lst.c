@@ -26,9 +26,9 @@ void	update_max_min_lst_b(t_push *stc, t_sort *target)
 	while (target)
 	{
 		if (target->nbr < stc->e_min_b)
-			stc->e_min_b = target->nbr;	
+			stc->e_min_b = target->nbr;
 		if (target->nbr > stc->e_max_b)
-			stc->e_max_b = target->nbr;	
+			stc->e_max_b = target->nbr;
 		target = target->next;
 	}
 	target = start;
@@ -40,22 +40,22 @@ void	update_max_min_lst(t_push *stc, t_sort *target)
 
 	if (target == stc->first_a)
 	{
-	start = target;
-	target = target->next;
-	if (target)
-	{
-	stc->e_min_a = target->nbr;
-	stc->e_max_a = target->nbr;
-	}
-	while (target)
-	{
-			if (target->nbr < stc->e_min_a)
-				stc->e_min_a = target->nbr;	
-			if (target->nbr > stc->e_max_a)
-				stc->e_max_a = target->nbr;	
+		start = target;
 		target = target->next;
-	}
-	target = start;
+		if (target)
+		{
+			stc->e_min_a = target->nbr;
+			stc->e_max_a = target->nbr;
+		}
+		while (target)
+		{
+			if (target->nbr < stc->e_min_a)
+				stc->e_min_a = target->nbr;
+			if (target->nbr > stc->e_max_a)
+				stc->e_max_a = target->nbr;
+			target = target->next;
+		}
+		target = start;
 	}
 	else if (target == stc->first_b)
 		update_max_min_lst_b(stc, target);
@@ -63,18 +63,18 @@ void	update_max_min_lst(t_push *stc, t_sort *target)
 
 void	check_max_min_b(t_push *stc, t_sort *target)
 {
-		if (stc->first_a == NULL)
-		{
-			stc->e_min_a = target->nbr;
-			stc->e_max_a = target->nbr;
-		}
-		if (target->nbr < stc->e_min_a)
-			stc->e_min_a = target->nbr;
-		if (target->nbr > stc->e_max_a)
-			stc->e_max_a = target->nbr;
-		if (target->nbr == stc->e_min_b || target->nbr == stc->e_min_b)
-			return (update_max_min_lst_b(stc, target));
-		return ;
+	if (stc->first_a == NULL)
+	{
+		stc->e_min_a = target->nbr;
+		stc->e_max_a = target->nbr;
+	}
+	if (target->nbr < stc->e_min_a)
+		stc->e_min_a = target->nbr;
+	if (target->nbr > stc->e_max_a)
+		stc->e_max_a = target->nbr;
+	if (target->nbr == stc->e_min_b || target->nbr == stc->e_min_b)
+		return (update_max_min_lst_b(stc, target));
+	return ;
 }
 
 void	check_max_min(t_push *stc, t_sort *target)
@@ -94,7 +94,6 @@ void	check_max_min(t_push *stc, t_sort *target)
 		{
 			return (update_max_min_lst(stc, target));
 		}
-
 		return ;
 	}
 	if (target == stc->first_b)

@@ -37,60 +37,33 @@ void	swap(t_push	*stc, int list)
 
 int	actual_size(t_push *stc, t_sort *target)
 {
-	int i;
-	t_sort *start;
+	int		i;
+	t_sort	*start;
 
 	start = target;
 	i = 0;
-		while (target)
-		{
-			i++;
-			target = target->next;
-		}
-		target = start;
-		return (i);
+	while (target)
+	{
+		i++;
+		target = target->next;
+	}
+	target = start;
+	return (i);
 }
 
 void	push(t_push *stc, t_sort *target)
 {
-	int	i;
-	char *str;
-	t_sort *a;
-	t_sort *b;
-	
+	int		i;
+	t_sort	*a;
+	t_sort	*b;
+
 	a = stc->first_a;
 	b = stc->first_b;
 	i = 0;
 	if (target == NULL)
 		return ;
 	check_max_min(stc, target);
-//	printf("actual size a %d\n",stc->actual_size_a);
-//	printf("actual size b %d\n",stc->actual_size_b);
-/*	printf("list a |");
-	while (stc->first_a)
-	{	
-		printf(" %d |",stc->first_a->nbr);
-	stc->first_a = stc->first_a->next;
-	}
-	printf("\n");
-	printf("list b |");
-	while (stc->first_b)
-	{	
-		printf(" %d |",stc->first_b->nbr);
-		stc->first_b = stc->first_b->next;
-	}	
-	printf("\n");
-	stc->first_a = a;
-	stc->first_b = b;
-*/
-	
-	// printf("element max a %d\n",stc->e_max_a);
-	// printf("element min a %d\n",stc->e_min_a);
-	// printf("element max b %d\n",stc->e_max_b);
-	// printf("element min b %d\n",stc->e_min_b);
-
 	stc->actual_size_a = actual_size(stc, stc->first_a);
-
 	stc->actual_size_b = actual_size(stc, stc->first_b);
 	str = ft_itoa(stc->actual_size_a);
 	if (target == stc->first_a)
@@ -114,7 +87,6 @@ void	push(t_push *stc, t_sort *target)
 		stc->first_a = target;
 		stc->actual_size_b--;
 		stc->actual_size_a++;
-
 		if (stc->actual_size_b == 0)
 			stc->first_b = NULL;
 		if (stc->actual_size_b == 1)
@@ -122,14 +94,12 @@ void	push(t_push *stc, t_sort *target)
 		if (stc->actual_size_a == 1)
 			stc->first_a->next = NULL;
 	}
-//	if (i == 1)
-//		update_max_min_lst(stc, target);
 }
 
 t_sort	*rotate(t_push *stc, t_sort *target)
 {
-	t_sort *obj;
-	t_sort *first;
+	t_sort	*obj;
+	t_sort	*first;
 	int		i;
 
 	i = 0;
@@ -145,7 +115,7 @@ t_sort	*rotate(t_push *stc, t_sort *target)
 	obj->next = NULL;
 	if (i == 1)
 		return (stc->first_a = first);
-	else 
+	else
 		return (stc->first_b = first);
 }
 
@@ -172,7 +142,7 @@ t_sort	*revers_rotate(t_push *stc, t_sort *target)
 	prec->next = NULL;
 	if (i == 1)
 		stc->first_a = obj;
-	else 
+	else
 		stc->first_b = obj;
 	return (obj);
 }

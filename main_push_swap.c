@@ -37,8 +37,8 @@ void	witch_side_rotate(t_push *lst, int i)
 
 void	insert_ele_in_lst(t_push *lst)
 {
-	t_sort *start;
-	int	i;
+	t_sort	*start;
+	int		i;
 
 	start = lst->first_a;
 	i = found_good_place(lst);
@@ -47,9 +47,9 @@ void	insert_ele_in_lst(t_push *lst)
 	write(1, "pa\n", 3);
 }
 
-int		found_e_min(t_push *lst)
+int	found_e_min(t_push *lst)
 {
-	int	i;
+	int		i;
 	t_sort	*start;
 
 	i = 0;
@@ -63,11 +63,10 @@ int		found_e_min(t_push *lst)
 	return (i);
 }
 
-
 int	main(int ac, char *av[])
 {
-	t_push new;
-	int	i;
+	t_push	new;
+	int		i;
 
 	if (ac < 2)
 		return (0);
@@ -80,26 +79,16 @@ int	main(int ac, char *av[])
 		return (clean(&new, 2));
 	new.nbr_per_part = ac;
 	if (ac < 3)
-	{
 		write(1, "ra\n", 3);
-	}
 	if (ac < 20)
 	{
 		sort_em_all(&new);
 		if (list_sort(&new) != 1)
-			write(1,"ERROR\n", 6);
+			write(1, "ERROR\n", 6);
 		return (clean(&new, 2));
 	}
 	solver_push_swap(&new);
 	if (list_sort(&new) != 1)
-		write(1,"ERROR\n", 6);
-	t_sort *start;
-
-	start = new.first_a;
-/*	while (new.first_a)
-	{
-		printf("%d |",new.first_a->nbr);
-new.first_a = new.first_a->next;
-	}*/
+		write(1, "ERROR\n", 6);
 	clean(&new, 2);
 }

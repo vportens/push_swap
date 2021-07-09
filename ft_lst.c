@@ -63,18 +63,17 @@ int	ft_lst_add_back(int	nbr, t_push *stc)
 
 t_sort	*ft_lst_last(t_push *stc)
 {
-	t_sort *start;
-	t_sort		*ret;
+	t_sort	*start;
+	t_sort	*ret;
 
 	ret = NULL;
 	start = stc->first_b;
 	if (stc->first_b)
 	{
-	while (stc->first_b->next)
-		stc->first_b = stc->first_b->next;
-	ret = stc->first_b;
+		while (stc->first_b->next)
+			stc->first_b = stc->first_b->next;
+		ret = stc->first_b;
 	}
 	stc->first_b = start;
-	return (ret);	
-	
+	return (ret);
 }

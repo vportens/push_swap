@@ -14,7 +14,7 @@
 
 void	init_sorting_pos(t_push *stc)
 {
-	int	i;
+	int		i;
 	t_sort	*first;
 
 	i = 0;
@@ -27,7 +27,7 @@ void	init_sorting_pos(t_push *stc)
 		stc->first_a = first;
 		i++;
 	}
-	stc->first_a = first;	
+	stc->first_a = first;
 }
 
 void	sort_tab(t_push *stc)

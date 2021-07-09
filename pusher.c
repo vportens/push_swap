@@ -14,10 +14,10 @@
 
 void	push_both_second_path(t_push *stc, t_sort *start)
 {
-	int	i;
-	int	j;
-	t_sort *target_i;
-	t_sort *target_j;
+	int		i;
+	int		j;
+	t_sort	*target_i;
+	t_sort	*target_j;
 
 	i = stc->first_a->ra;
 	j = stc->first_a->rrb;
@@ -26,7 +26,7 @@ void	push_both_second_path(t_push *stc, t_sort *start)
 	target_j = stc->first_b;
 	while (i > 0)
 	{
-		target_i =  rotate(stc, target_i);
+		target_i = rotate(stc, target_i);
 		write(1, "ra\n", 3);
 		i--;
 	}
@@ -42,10 +42,10 @@ void	push_both_second_path(t_push *stc, t_sort *start)
 
 void	push_both(t_push *stc, t_sort *start)
 {
-	int	i;
-	int	j;
-	t_sort *target_i;
-	t_sort *target_j;
+	int		i;
+	int		j;
+	t_sort	*target_i;
+	t_sort	*target_j;
 
 	i = stc->first_a->rb;
 	j = stc->first_a->rra;
@@ -54,15 +54,15 @@ void	push_both(t_push *stc, t_sort *start)
 	target_j = stc->first_a;
 	while (i > 0)
 	{
-		target_i =  rotate(stc, target_i);
-			write(1, "rb\n", 3);
-			i--;
+		target_i = rotate(stc, target_i);
+		write(1, "rb\n", 3);
+		i--;
 	}
 	while (j > 0)
 	{
 		target_j = revers_rotate(stc, target_j);
-				write(1, "rra\n", 4);
-			j--;
+		write(1, "rra\n", 4);
+		j--;
 	}
 	push(stc, stc->first_a);
 	write(1, "pb\n", 3);
@@ -124,14 +124,11 @@ void	push_rr(t_push *stc, t_sort *start, int a, int b)
 
 void	push_the_nbr(int nbr_to_move, t_push *stc)
 {
-	t_sort *start;
+	t_sort	*start;
 
 	start = stc->first_a;
-
-//	printf("pos sort a %d | nbr to move %d \n",nbr_to_move, stc->first_a->nbr );
 	while (stc->first_a->pos_sort != nbr_to_move)
 		stc->first_a = stc->first_a->next;
-	
 	if (stc->first_a->r == -1)
 	{
 		if (stc->first_a->ra + stc->first_a->rrb > stc->first_a->rb + stc->first_a->rra)
@@ -144,4 +141,3 @@ void	push_the_nbr(int nbr_to_move, t_push *stc)
 	else if (stc->first_a->r == 1)
 		push_r(stc, start, stc->first_a->ra, stc->first_a->rb);
 }
-

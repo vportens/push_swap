@@ -38,7 +38,7 @@ int	found_the_best_move(t_push *stc, int part)
 	return (nbr_to_move);
 }
 
-int		best_nbr_move(t_push *stc)
+int	best_nbr_move(t_push *stc)
 {
 	int	res_r;
 	int	res_rr;
@@ -52,7 +52,8 @@ int		best_nbr_move(t_push *stc)
 		res_rr = stc->first_a->rra;
 	else
 		res_rr = stc->first_a->rrb;
-	if (stc->first_a->ra + stc->first_a->rrb > stc->first_a->rra + stc->first_a->rb)
+	if (stc->first_a->ra + stc->first_a->rrb > stc->first_a->rra
+		+ stc->first_a->rb)
 		res_both = stc->first_a->rra + stc->first_a->rb;
 	else
 		res_both = stc->first_a->ra + stc->first_a->rrb;
@@ -67,7 +68,7 @@ int		best_nbr_move(t_push *stc)
 
 void	fill_inf_move(t_push *stc, int index)
 {
-	int	j;
+	int		j;
 	t_sort	*first_b;
 	t_sort	*prec;
 
@@ -80,26 +81,12 @@ void	fill_inf_move(t_push *stc, int index)
 		prec = ft_lst_last(stc);
 	while (stc->first_b)
 	{
-		if ((prec->pos_sort > stc->first_a->pos_sort) && (stc->first_b->pos_sort < stc->first_a->pos_sort))
-		{
-			break;
-			}
-		if ((stc->first_a->nbr > stc->e_max_b && prec->nbr == stc->e_min_b))
+		if ((prec->pos_sort > stc->first_a->pos_sort && (stc->first_b->pos_sort < stc->first_a->pos_sort)) || (stc->first_a->nbr > stc->e_max_b && prec->nbr == stc->e_min_b) || (stc->first_a->nbr < stc->e_min_b && prec->nbr == stc->e_min_b) || (stc->first_a->nbr > stc->e_max_b && stc->first_b->nbr == stc->e_max_b))
 			break ;
-		if (stc->first_a->nbr < stc->e_min_b && prec->nbr == stc->e_min_b)
-			break ;
-		if (stc->first_a->nbr > stc->e_max_b && stc->first_b->nbr == stc->e_max_b)
-		{
-			break ;
-			}
-
 		prec = stc->first_b;
 		stc->first_b = stc->first_b->next;
 		j++;
 	}
-
-
-//	printf("%d\n", j);
 	stc->first_a->rb = j;
 	stc->first_a->rrb = stc->actual_size_b - j;
 	stc->first_a->nbr_move = best_nbr_move(stc);
@@ -108,21 +95,14 @@ void	fill_inf_move(t_push *stc, int index)
 
 void	sort_part(t_push *stc, int part)
 {
-	int i;
-	int	j;
+	int		i;
+	int		j;
 	t_sort	*first_a;
-	int	nbr;
+	int		nbr;
 
 	i = 0;
 	j = 0;
 	first_a = stc->first_a;
-/*	printf("actual size a %d\n",stc->actual_size_a);
-	printf("actual size b %d\n",stc->actual_size_b);
-	printf("element max a %d\n",stc->e_max_a);
-	 printf("element min a %d\n",stc->e_min_a);
-	 printf("element max b %d\n",stc->e_max_b);
-	 printf("element min b %d\n",stc->e_min_b);
-*/
 	while (stc->first_a)
 	{
 		if (stc->first_a->pos_sort < stc->nbr_per_part * (part + 1))
@@ -139,7 +119,6 @@ void	sort_part(t_push *stc, int part)
 		return ;
 	}
 	nbr = found_the_best_move(stc, part);
-	//printf("%d nbr to push\n",nbr);
 	push_the_nbr(nbr, stc);
 }
 

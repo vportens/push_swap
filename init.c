@@ -12,10 +12,9 @@
 
 #include "push_swap.h"
 
-
 int	init_lst(t_push *stc, int nbr_element)
 {
-	int	i;
+	int		i;
 	t_sort	*first;
 
 	i = 0;

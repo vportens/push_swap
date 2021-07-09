@@ -16,7 +16,7 @@ int	found_good_place(t_push *lst)
 {
 	t_sort	*prec;
 	t_sort	*start;
-	int	i;
+	int		i;
 
 	i = 0;
 	prec = NULL;
@@ -27,11 +27,11 @@ int	found_good_place(t_push *lst)
 	lst->first_a = start;
 	while (lst->first_a)
 	{
-		if ((prec->nbr < lst->first_b->nbr && lst->first_a->nbr 
-		> lst->first_b->nbr) || (prec->nbr == lst->e_max_a
-		&& (lst->first_b->nbr < lst->e_min_a || lst->first_b->nbr 
-		> lst->e_max_a)))
-			break;
+		if ((prec->nbr < lst->first_b->nbr && lst->first_a->nbr
+				> lst->first_b->nbr) || (prec->nbr == lst->e_max_a
+				&& (lst->first_b->nbr < lst->e_min_a || lst->first_b->nbr
+					> lst->e_max_a)))
+			break ;
 		i++;
 		prec = lst->first_a;
 		lst->first_a = lst->first_a->next;
@@ -82,4 +82,3 @@ void	sort_em_all(t_push *lst)
 	i = found_e_min(lst);
 	witch_side_rotate(lst, i);
 }
-

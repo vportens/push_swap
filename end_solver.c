@@ -14,17 +14,17 @@
 
 void	put_second_part(t_push *stc)
 {
-		while (stc->first_b->nbr != stc->e_max_b)
-		{
-			revers_rotate(stc, stc->first_b);
-			write(1, "rrb\n", 4);
-		}
+	while (stc->first_b->nbr != stc->e_max_b)
+	{
+		revers_rotate(stc, stc->first_b);
+		write(1, "rrb\n", 4);
+	}
 }
 
 void	put_big_one_to_the_top(t_push *stc)
 {
-	t_sort *start;
-	int	i;
+	t_sort	*start;
+	int		i;
 
 	start = stc->first_b;
 	i = 0;
@@ -42,7 +42,7 @@ void	put_big_one_to_the_top(t_push *stc)
 			write(1, "rb\n", 3);
 		}
 	}
-	else 
+	else
 		put_second_part(stc);
 }
 
@@ -55,7 +55,7 @@ void	send_lst(t_push *stc)
 	}
 }
 
-int		fucking_norme(int which_one, int a, int b, int c)
+int	fucking_norme(int which_one, int a, int b, int c)
 {
 	if (which_one == 1)
 		return (a);
@@ -65,4 +65,3 @@ int		fucking_norme(int which_one, int a, int b, int c)
 		return (c);
 	return (0);
 }
-

@@ -14,7 +14,7 @@
 
 int	list_sort(t_push *stc)
 {
-	t_sort *first;
+	t_sort	*first;
 	int		nbr;
 
 	first = stc->first_a;
