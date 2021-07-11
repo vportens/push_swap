@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 00:37:02 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/06 12:25:51 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/09 23:35:19 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	push(t_push *stc, t_sort *target)
 	check_max_min(stc, target);
 	stc->actual_size_a = actual_size(stc, stc->first_a);
 	stc->actual_size_b = actual_size(stc, stc->first_b);
-	str = ft_itoa(stc->actual_size_a);
 	if (target == stc->first_a)
 	{
 		stc->first_a = stc->first_a->next;

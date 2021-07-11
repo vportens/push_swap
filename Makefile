@@ -3,7 +3,7 @@ NAME_B = checker
 FLAGS = -Wall -Wextra -g 
 SRCS = main_push_swap.c utils.c init.c ft_lst.c sort.c fonction.c list_sort.c solver.c max_min_lst.c pusher.c end_solver.c sort_algo.c
  
-SRCS_BONUS = gnl_recusif.c main_checker.c ft_atoi.c sort_em_all.c swap.c swap_utils.c 
+SRCS_BONUS = gnl_recusif.c main_checker_push_swap.c  fonction.c list_sort.c  utils.c init.c ft_lst.c max_min_lst.c
 CC = gcc
 OBJ = ${SRCS:.c=.o}
 OBJS = *.o

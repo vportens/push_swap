@@ -6,7 +6,7 @@
 /*   By: laclide <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 11:10:14 by laclide           #+#    #+#             */
-/*   Updated: 2021/07/06 12:25:18 by laclide          ###   ########.fr       */
+/*   Updated: 2021/07/11 19:31:48 by laclide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ typedef struct	s_sort
 	struct s_sort	*next;
 }				t_sort;
 
-int	ft_str_len(char *str);
-char	*ft_itoa(int nbr);
 int	check_arg(int ac, char **av);
 int	error(int i, t_push *lst);
 int	clean(t_push *lst, int i);
@@ -66,6 +64,7 @@ int	*ft_cp_tab(int	*tab, int max_lst);
 int	ft_lst_add_back(int	nbr, t_push *stc);
 int	ft_lst_first(int nbr, t_push *stc);
 t_sort	*ft_lst_last(t_push *stc);
+int	rec_gnl(int fd, char **line);
 
 
 void	sort_tab(t_push *stc);
