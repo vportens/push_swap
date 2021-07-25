@@ -108,6 +108,8 @@ int	main(int ac, char *av[])
 	t_push	new;
 	char	*str;
 
+	if (ac < 2)
+		return (0);
 	if (check_arg(ac, av) == 1)
 		return (error(0, &new));
 	if (init_stc(&new, ac, av) == 1)
