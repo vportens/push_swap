@@ -65,6 +65,8 @@ int	main(int ac, char *av[])
 {
 	t_push	new;
 
+	if (ac < 2)
+		return (0);
 	if (check_arg(ac, av) == 1)
 		return (error(0, &new));
 	if (init_stc(&new, ac, av) == 1)
@@ -78,8 +80,6 @@ int	main(int ac, char *av[])
 	if (ac < 20)
 	{
 		sort_em_all(&new);
-		if (list_sort(&new) != 1)
-			write(1, "ERROR\n", 6);
 		return (clean(&new, 2));
 	}
 	solver_push_swap(&new);
