@@ -37,10 +37,8 @@ void	witch_side_rotate(t_push *lst, int i)
 
 void	insert_ele_in_lst(t_push *lst)
 {
-	t_sort	*start;
 	int		i;
 
-	start = lst->first_a;
 	i = found_good_place(lst);
 	witch_side_rotate(lst, i);
 	push(lst, lst->first_b);
@@ -66,10 +64,7 @@ int	found_e_min(t_push *lst)
 int	main(int ac, char *av[])
 {
 	t_push	new;
-	int		i;
 
-	if (ac < 2)
-		return (0);
 	if (check_arg(ac, av) == 1)
 		return (error(0, &new));
 	if (init_stc(&new, ac, av) == 1)

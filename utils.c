@@ -29,7 +29,6 @@ int	clean(t_push *lst, int i)
 	}
 	if (i == 55)
 		write(1, "KO\n", 3);
-
 	if (i == 56)
 		write(1, "OK\n", 3);
 	return (1);
@@ -37,9 +36,6 @@ int	clean(t_push *lst, int i)
 
 int	error(int i, t_push *lst)
 {
-	int	j;
-
-	j = 0;
 	if (i >= 0)
 		write(1, "Error\n", 6);
 	if (i > 0)

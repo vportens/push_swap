@@ -41,7 +41,6 @@ int	ft_lst_first(int nbr, t_push *stc)
 int	ft_lst_add_back(int	nbr, t_push *stc)
 {
 	t_sort	*new;
-	t_sort	*first;
 
 	new = malloc(sizeof(t_sort));
 	if (new == NULL)
@@ -53,7 +52,6 @@ int	ft_lst_add_back(int	nbr, t_push *stc)
 		stc->first_a = new;
 		return (0);
 	}
-	first = stc->first_a;
 	while (stc->first_a->next != NULL)
 		stc->first_a = stc->first_a->next;
 	stc->first_a->next = new;

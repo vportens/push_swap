@@ -131,7 +131,8 @@ void	push_the_nbr(int nbr_to_move, t_push *stc)
 		stc->first_a = stc->first_a->next;
 	if (stc->first_a->r == -1)
 	{
-		if (stc->first_a->ra + stc->first_a->rrb > stc->first_a->rb + stc->first_a->rra)
+		if (stc->first_a->ra + stc->first_a->rrb
+			> stc->first_a->rb + stc->first_a->rra)
 			push_both(stc, start);
 		else
 			push_both_second_path(stc, start);

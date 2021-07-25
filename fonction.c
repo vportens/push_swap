@@ -40,6 +40,8 @@ int	actual_size(t_push *stc, t_sort *target)
 	int		i;
 	t_sort	*start;
 
+	if (stc)
+		i = 0;
 	start = target;
 	i = 0;
 	while (target)
@@ -53,46 +55,12 @@ int	actual_size(t_push *stc, t_sort *target)
 
 void	push(t_push *stc, t_sort *target)
 {
-	int		i;
-	t_sort	*a;
-	t_sort	*b;
-
-	a = stc->first_a;
-	b = stc->first_b;
-	i = 0;
 	if (target == NULL)
 		return ;
 	check_max_min(stc, target);
 	stc->actual_size_a = actual_size(stc, stc->first_a);
 	stc->actual_size_b = actual_size(stc, stc->first_b);
-	if (target == stc->first_a)
-	{
-		stc->first_a = stc->first_a->next;
-		target->next = stc->first_b;
-		stc->first_b = target;
-		stc->actual_size_a--;
-		stc->actual_size_b++;
-		if (stc->actual_size_a == 0)
-			stc->first_a = NULL;
-		if (stc->actual_size_a == 1)
-			stc->first_a->next = NULL;
-		if (stc->actual_size_b == 1)
-			stc->first_b->next = NULL;
-	}
-	else
-	{	
-		stc->first_b = target->next;
-		target->next = stc->first_a;
-		stc->first_a = target;
-		stc->actual_size_b--;
-		stc->actual_size_a++;
-		if (stc->actual_size_b == 0)
-			stc->first_b = NULL;
-		if (stc->actual_size_b == 1)
-			stc->first_b->next = NULL;
-		if (stc->actual_size_a == 1)
-			stc->first_a->next = NULL;
-	}
+	init_target(stc, target);
 }
 
 t_sort	*rotate(t_push *stc, t_sort *target)

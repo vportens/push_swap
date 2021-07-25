@@ -106,7 +106,6 @@ int	do_the_move(char *str, t_push *stc)
 int	main(int ac, char *av[])
 {
 	t_push	new;
-	int		i;
 	char	*str;
 
 	if (check_arg(ac, av) == 1)
@@ -126,6 +125,6 @@ int	main(int ac, char *av[])
 		free(str);
 	if (list_sort(&new) != 1 || new.actual_size_b != 0)
 		return (clean(&new, 55));
-	else 
+	else
 		return (clean(&new, 56));
 }

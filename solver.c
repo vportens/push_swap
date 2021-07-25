@@ -81,7 +81,7 @@ void	fill_inf_move(t_push *stc, int index)
 		prec = ft_lst_last(stc);
 	while (stc->first_b)
 	{
-		if ((prec->pos_sort > stc->first_a->pos_sort && (stc->first_b->pos_sort < stc->first_a->pos_sort)) || (stc->first_a->nbr > stc->e_max_b && prec->nbr == stc->e_min_b) || (stc->first_a->nbr < stc->e_min_b && prec->nbr == stc->e_min_b) || (stc->first_a->nbr > stc->e_max_b && stc->first_b->nbr == stc->e_max_b))
+		if (is_break(stc, prec) == 1)
 			break ;
 		prec = stc->first_b;
 		stc->first_b = stc->first_b->next;
@@ -95,12 +95,10 @@ void	fill_inf_move(t_push *stc, int index)
 
 void	sort_part(t_push *stc, int part)
 {
-	int		i;
 	int		j;
 	t_sort	*first_a;
 	int		nbr;
 
-	i = 0;
 	j = 0;
 	first_a = stc->first_a;
 	while (stc->first_a)
