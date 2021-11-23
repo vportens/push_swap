@@ -45,4 +45,4 @@ It's will be the minimun move to do to push the element and make it be reverse s
 **note** : (If you have 10 ra to do and 12 rb it's the same as 10 rr and 2 rb)  
 Repeat it along all the number in the lst a,  
 Then I push the element with the minimun move to make in all list a,  
-And reapete that till I do not have element in lst a, push back all element from b to a and put the first element to the top.  
+And repeate that till I do not have element in lst a, push back all element from b to a and put the first element to the top.  
