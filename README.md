@@ -23,26 +23,26 @@ Push_swap sorter
 Push_swap checker  
 ```make bonus && ./checker arg1 arg2 ... argn```  
 
-# Algo use
+# Algo use  
 For the Project I use three type of algo,  
-**First algo**
-Sort a list of three element, 
-Using only the stack a, you only need two move to sort it.  
+**First algo**  
+Sort a list of three element,   
+Using only the stack a, you only need two move to sort it.    
 
-**Second algo**
-Up to 8 to 12 element, I push all element in stack b till I go three elem in a, then I push back element from b in a in a way the element will be.
+**Second algo**  
+Up to 8 to 12 element, I push all element in stack b till I go three elem in a, then I push back element from b in a in a way the element will be.  
 
-**Third algo**
-Up to 500 element, this one is more complexe.  
-I replace the number by their place in a sort list (ex : 24 - 12 - 2 become : 3 - 2 - 1)
-Then, for each element of list a, I will check how much ra, rra, rb, rrb it's need to be push and sort revers in lst b.  
-Then I compare :  
-```ra > rb``` and take the bigest number here name **r_move** 
-```rra > rrb``` and take the bigest number here name **rr_move**
-```ra + rrb > rb + rra``` and take the lowest number here name **both_move**
-**I set the minimun move to the lowest number between r_move - rr_move - both_move**   
-It's will be the minimun move to do to push the element and make it be reverse sort in b,  
-**note** : (If you have 10 ra to do and 12 rb it's the same as 10 rr and 2 rb)
-Repeat it along all the number in the lst a,
-Then I push the element with the minimun move to make in all list a,
-And reapete that till I do not have element in lst a, push back all element from b to a and put the first element to the top.
+**Third algo**  
+Up to 500 element, this one is more complexe.    
+I replace the number by their place in a sort list (ex : 24 - 12 - 2 become : 3 - 2 - 1)  
+Then, for each element of list a, I will check how much ra, rra, rb, rrb it's need to be push and sort revers in lst b.    
+Then I compare :    
+```ra > rb``` and take the bigest number here name **r_move**   
+```rra > rrb``` and take the bigest number here name **rr_move**  
+```ra + rrb > rb + rra``` and take the lowest number here name **both_move**  
+**I set the minimun move to the lowest number between r_move - rr_move - both_move**     
+It's will be the minimun move to do to push the element and make it be reverse sort in b,    
+**note** : (If you have 10 ra to do and 12 rb it's the same as 10 rr and 2 rb)  
+Repeat it along all the number in the lst a,  
+Then I push the element with the minimun move to make in all list a,  
+And reapete that till I do not have element in lst a, push back all element from b to a and put the first element to the top.  
