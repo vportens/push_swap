@@ -1,9 +1,30 @@
 NAME = push_swap
 NAME_B = checker
 FLAGS = -Wall -Wextra -g 
-SRCS = main_push_swap.c utils.c init.c ft_lst.c sort.c fonction.c list_sort.c solver.c max_min_lst.c pusher.c end_solver.c sort_algo.c pusher_utils.c
+SRCS = 				srcs/main_file/main_push_swap.c		\
+					srcs/utils.c						\
+					srcs/init.c							\
+					srcs/ft_lst.c						\
+					srcs/sort.c							\
+					srcs/fonction.c						\
+					srcs/list_sort.c					\
+					srcs/solver.c						\
+					srcs/max_min_lst.c 					\
+					srcs/pusher.c						\
+					srcs/end_solver.c					\
+					srcs/sort_algo.c					\
+					srcs/pusher_utils.c
  
-SRCS_BONUS = gnl_recusif.c main_checker_push_swap.c  fonction.c list_sort.c  utils.c init.c ft_lst.c max_min_lst.c pusher_utils.c
+SRCS_BONUS = 		srcs/gnl_recusif.c		\
+					srcs/main_file/main_checker_push_swap.c		\
+					srcs/fonction.c						\
+					srcs/list_sort.c					\
+					srcs/utils.c						\
+					srcs/init.c							\
+					srcs/ft_lst.c						\
+					srcs/max_min_lst.c					\
+					srcs/pusher_utils.c
+
 CC = gcc
 OBJ = ${SRCS:.c=.o}
 OBJS = *.o
@@ -11,15 +32,15 @@ OBJ_B = ${SRCS_BONUS:.c=.o}
 OBJS_B = *.o
 
 .c.o:
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I include/.
 
 all : $(NAME)
 
 $(NAME)	: $(OBJ) 
-			$(CC) $(FLAGS) -o $(NAME) $(OBJ)
+			$(CC) $(FLAGS) -I include/. -o $(NAME) $(OBJ)
 
 $(NAME_B) : $(OBJ_B)
-			$(CC) $(FLAGS) -o $(NAME_B) $(OBJ_B)
+			$(CC) $(FLAGS) -I include/. -o $(NAME_B) $(OBJ_B)
 clean : 
 		rm -rf $(NAME) $(NAME_B)
 
