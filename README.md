@@ -1,4 +1,7 @@
 ## Push_swap
+### Subject : push_swap.subject.pdf
+
+## Target
 Give the algo a list to sort as argument, and it will sort it using specific move on two stack.
 The objectif is to do the minimun move possible.  
 Print all the move to sort on the terminal.  
