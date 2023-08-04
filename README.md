@@ -1,5 +1,5 @@
 ## Push_swap
-### Subject : push_swap.subject.pdf
+### [Project goal](https://github.com/vportens/push_swap/blob/master/push_swap.subject.pdf)
 
 ## Target
 Give the algo a list to sort as argument, and it will sort it using specific move on two stack.
